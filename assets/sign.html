@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>
+            Blogs
+        </title>
+        <link href="sign.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div class="all">
+            <div class='left'>
+                <h1>Blogs</h1>
+            </div>
+            <div class="right">
+                <div id="signup" class="signup hide">
+                    <h1>Sign Up</h1>
+                    <label>Name: </label>
+                    <input type="text" id="name">
+                    <label>username: </label>
+                    <input type="text" id="username">
+                    <label>Password: </label>
+                    <input type="text" id="password">
+                    <button onclick="signup()">Sign Up</button>
+                    <button onclick="togglesi()">Already have an account?</button>
+                </div>
+                <div id="signin" class="signin">
+                    <h1>Sign In</h1>
+                    <label>username: </label>
+                    <input type="text" id="susername">
+                    <label>Password: </label>
+                    <input type="password" id="spassword">
+                    <button onclick="signin()">Sign in</button>
+                    <button onclick="togglesu()">Don't have an account?</button>
+                </div>
+            </div>
+        </div>
+        <script src="sign.js"></script>
+    </body>
+</html>

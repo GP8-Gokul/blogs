@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.all{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.left {
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(6, 182, 212, 0.8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.right{
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.left h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.signup, .signin {
+    height: 60vh;
+    width:25vw;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+}
+
+.signup h1, .signin h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.signup label, .signin label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.signup input, .signin input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup button, .signin button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup button:hover, .signin button:hover {
+    background-color: #0056b3;
+}
+
+.signin h1{
+    margin-bottom: 4rem;
+}
+
+.hide{
+    visibility: hidden;
+}

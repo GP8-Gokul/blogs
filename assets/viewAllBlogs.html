@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title> View All Blogs</title>
+        <link href="viewAll.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div class='top'>
+            <h1>Blogs</h1>
+        </div>
+        <div class="top-buttons">
+            <button onclick="allBlogs()" class="color">📖 All Blogs</button>
+            <button onclick="myBlogs()">📚 My Blogs</button>
+            <button onclick="create()">✏️ Write Blog</button>
+            <button onclick="logout()">👋 Log Out</button>
+        </div>
+        <br><br><br>
+        <div id="main"></div>
+        <script src="viewAllBlogs.js"></script>
+    </body>
+</html>
