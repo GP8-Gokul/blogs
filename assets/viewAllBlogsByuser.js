@@ -37,12 +37,12 @@ window.onload = async () =>{
             deleteButton.classList.add('delete')
             updateButton.onclick = (event) => {
                 event.stopPropagation()
-                updateContent(blog.id)
+                updateContent(blog._id)
             }
 
             deleteButton.onclick = (event) => {
                 event.stopPropagation()
-                deleteContent(blog.id)
+                deleteContent(blog._id)
             }
 
             updateDeleteDiv.appendChild(updateButton)

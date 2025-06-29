@@ -1,56 +1,10 @@
 body {
-    background-color: rgba(167, 161, 161, 0.215);
-    margin: 0;
-    font-family: Arial, sans-serif;
-    height:100vh;
     overflow: hidden;
-}
-
-.top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color: rgba(6, 182, 212, 0.8);
-    height: 6vh;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position:fixed;
-    z-index: 100;
-    top: 0;
-    left:0;
-    right:0;
 }
 
 .top h1 {
     margin: 0;
     font-size: 2rem;
-}
-
-
-.top-buttons {
-    display: flex;
-    justify-content: center;
-    border-bottom:2px solid rgba(6, 182, 212, 0.2) ;
-    gap: 2rem;
-    position: fixed;
-    top:8vh;
-    left:0;
-    right:0;
-    padding-bottom: 1rem;
-}
-
-.top-buttons button {
-    padding: 0.8rem 1.5rem;
-    background-color: rgba(6, 189, 230, 0.675);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.top-buttons button:hover {
-    background-color: rgba(6, 182, 212, 1);
 }
 
 #main {

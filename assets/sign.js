@@ -24,6 +24,9 @@ async function signin() {
         localStorage.setItem('token', response.data.token)
         window.location.href = '/all-blogs'
     }
+    else{
+        alert(response.data.error)
+    }
 }
 
 async function signup(){

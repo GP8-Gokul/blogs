@@ -11,6 +11,7 @@ const UsersSchema = new Schema({
 
 const blogsSchema = new Schema({
     title: String,
+    author : String,
     content: String,
     userId: ObjectID
 })

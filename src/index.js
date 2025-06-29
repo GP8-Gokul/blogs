@@ -94,6 +94,7 @@ app.post("/create-blogs",authenticate,async (req,res)=>{
     
     let newBlog = new Blogs({
         title: blogData.title,
+        author: user.username,
         content: blogData.content,
         author: user.username,
         userId: user._id
