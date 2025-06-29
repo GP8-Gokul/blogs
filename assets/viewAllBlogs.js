@@ -1,6 +1,6 @@
 window.onload = async () =>{
     let mainDiv = document.getElementById('main')
-    let response = await axios.get('http://localhost:3000/view-all-blogs',{
+    let response = await axios.get(`${BACKEND_URL}/view-all-blogs`,{
         headers:{
             token:localStorage.getItem('token')
         }

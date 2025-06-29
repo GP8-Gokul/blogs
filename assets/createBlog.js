@@ -7,7 +7,7 @@ async function submit() {
         ALLOWED_ATTR: []
     });
 
-    let response = await axios.post("http://localhost:3000/create-blogs",
+    let response = await axios.post(`${BACKEND_URL}/create-blogs`,
         {
             title,
             content

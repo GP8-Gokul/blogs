@@ -16,7 +16,7 @@ async function signin() {
     let username = document.getElementById('susername').value
     let password = document.getElementById('spassword').value
 
-    let response = await axios.post("http://localhost:3000/signin", {
+    let response = await axios.post(`${BACKEND_URL}/signin`, {
         username,
         password
     })
@@ -34,7 +34,7 @@ async function signup(){
     let username = document.getElementById('username').value
     let password = document.getElementById('password').value
 
-    let response = await axios.post("http://localhost:3000/signup",{
+    let response = await axios.post(`${BACKEND_URL}/signup`,{
         name,
         username,
         password

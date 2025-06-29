@@ -4,7 +4,7 @@ window.onload = async () => {
 
     console.log(id)
 
-    let response = await axios.get(`http://localhost:3000/blog-by-user/${id}`,{
+    let response = await axios.get(`${BACKEND_URL}/blog-by-user/${id}`,{
         headers:{
             token:localStorage.getItem('token')
         }
@@ -27,7 +27,7 @@ async function update() {
         ALLOWED_ATTR: []
     });
 
-    let response = await axios.put(`http://localhost:3000/edit-blog/${window.blogId}`,
+    let response = await axios.put(`${BACKEND_URL}/edit-blog/${window.blogId}`,
         {
             title,
             content

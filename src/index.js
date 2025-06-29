@@ -3,10 +3,16 @@ const jwt = require("jsonwebtoken")
 const path = require('path')
 const mongoose = require('mongoose')
 const {Users , Blogs} = require('./db.js')
+const dotenv = require("dotenv")
 
-mongoose.connect('mongodb+srv://gokulpjayan2004:GrJKglYfoAfKCDGz@cluster0.infebp8.mongodb.net/blog-app-database')
+dotenv.config();
 
-const PORT = process.env.PORT || 3000
+mongoose.connect(process.env.MONGODB_URL).then(()=>{
+    console.log("MongoDB Connection Successful!")
+})
+
+
+const PORT = process.env.PORT ;
 
 app = express()
 
@@ -154,4 +160,7 @@ app.delete("/delete-blog/:id",authenticate,async(req,res)=>{
     })
 })
 
-app.listen(PORT)
+app.listen(PORT,()=>{
+    console.log(`successfully connected to ${PORT}`);
+    
+})

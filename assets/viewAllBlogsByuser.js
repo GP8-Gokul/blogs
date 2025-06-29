@@ -1,6 +1,6 @@
 window.onload = async () =>{
     let mainDiv = document.getElementById('main')
-    let response = await axios.get('http://localhost:3000/blogs-by-user',{
+    let response = await axios.get(`${BACKEND_URL}/blogs-by-user`,{
         headers:{
             token:localStorage.getItem('token')
         }
@@ -95,7 +95,7 @@ function updateContent(id){
 async function deleteContent(id) {
     const userChoice = confirm("Are you sure you want to delete")
     if(userChoice){
-        let response = await axios.delete(`http://localhost:3000/delete-blog/${id}`,{
+        let response = await axios.delete(`${BACKEND_URL}/delete-blog/${id}`,{
             headers:{
                 token:localStorage.getItem('token')
             }

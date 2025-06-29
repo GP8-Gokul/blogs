@@ -4,7 +4,7 @@ window.onload = async () => {
 
     console.log(id)
 
-    let response = await axios.get(`http://localhost:3000/blog-by-user/${id}`,{
+    let response = await axios.get(`${BACKEND_URL}/blog-by-user/${id}`,{
         headers:{
             token:localStorage.getItem('token')
         }
