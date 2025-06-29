@@ -6,6 +6,8 @@ const {Users , Blogs} = require('./db.js')
 
 mongoose.connect('mongodb+srv://gokulpjayan2004:GrJKglYfoAfKCDGz@cluster0.infebp8.mongodb.net/blog-app-database')
 
+const PORT = process.env.PORT || 3000
+
 app = express()
 
 app.use(express.json())
@@ -152,4 +154,4 @@ app.delete("/delete-blog/:id",authenticate,async(req,res)=>{
     })
 })
 
-app.listen(3000)
+app.listen(PORT)
