@@ -15,10 +15,10 @@ const blogsSchema = new Schema({
     userId: ObjectID
 })
 
-const User = mongoose.model('users', UsersSchema)
+const Users = mongoose.model('users', UsersSchema)
 const Blogs = mongoose.model('blogs', blogsSchema)
 
 module.exports = {
-    User,
+    Users,
     Blogs
 }

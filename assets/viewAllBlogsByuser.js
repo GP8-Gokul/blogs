@@ -54,14 +54,14 @@ window.onload = async () =>{
             blogTop.appendChild(titleDiv)
             blogTop.appendChild(updateDeleteDiv)
 
-            blogDiv.id = blog.id
+            blogDiv.id = blog._id
             blogDiv.userId = blog.userId
             blogDiv.classList.add('blog')
             content.classList.add('content')
             blogDiv.appendChild(blogTop)
             blogDiv.appendChild(content)
             blogDiv.onclick = () =>{
-                window.location.href = `/blogs/${blog.id}`
+                window.location.href = `/blogs/${blog._id}`
             }
             mainDiv.appendChild(blogDiv)
         });

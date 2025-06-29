@@ -11,23 +11,10 @@ app = express()
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "../assets")))
 
-// let users = []
-// let blogs = []
-// let userId = 0
-// let blogId = 0
-
 const secretkey = "hello"
 
 app.get("/",(req,res)=>{
     res.sendFile(path.join(__dirname,"../assets/sign.html"))
-})
-
-app.get("/signup",(req,res)=>{
-    res.sendFile(path.join(__dirname,"../assets/signup.html"))
-})
-
-app.get("/signin",(req,res)=>{
-    res.sendFile(path.join(__dirname,"../assets/signin.html"))
 })
 
 app.get("/all-blogs",(req,res)=>{
@@ -80,9 +67,9 @@ app.post("/signup",async (req,res)=>{
     })
 })
 
-app.post("/signin",(req,res)=>{
+app.post("/signin",async (req,res)=>{
     let userData = req.body
-    let user = users.find(user => user.username === userData.username)
+    let user = await Users.findOne({username:userData.username})
     if(!user){
         return res.json({
             error:"user doesn't exists"
@@ -101,56 +88,64 @@ app.post("/signin",(req,res)=>{
     }
 })
 
-app.post("/create-blogs",authenticate,(req,res)=>{
+app.post("/create-blogs",authenticate,async (req,res)=>{
     let user = req.user
     let blogData = req.body
-    blogData.userId = user.id
-    blogData.id = blogId++
-    blogData.author = user.username
-    blogs.push(blogData)
-    console.log(blogs)
+    
+    let newBlog = new Blogs({
+        title: blogData.title,
+        content: blogData.content,
+        author: user.username,
+        userId: user._id
+    }) 
+
+    await newBlog.save()
+
     res.json({
         message:"blog created successfully"
     })
 })
 
-app.get("/view-all-blogs",authenticate,(req,res)=>{
+app.get("/view-all-blogs",authenticate, async (req,res)=>{
+    let blogs = await Blogs.find()
     res.json({
         "blogs":blogs.slice().reverse()
     })
 })
 
-app.get("/blogs-by-user",authenticate,(req,res)=>{
+app.get("/blogs-by-user",authenticate, async (req,res)=>{
     let user = req.user
-    let blogsToBeReturned = blogs.filter(blog => blog.userId == user.id)
+    let blogsToBeReturned = await Blogs.find({userId:user._id})
     res.json({
         "blogs":blogsToBeReturned.reverse()
     })
+    console.log(blogsToBeReturned)
 })
 
-app.get("/blog-by-user/:id",authenticate,(req,res)=>{
+app.get("/blog-by-user/:id",authenticate,async (req,res)=>{
     let id = req.params.id
-    let blog = blogs.find(blog => blog.id == id)
+    let blog = await Blogs.findById(id)
     res.json({
         blog:blog
     })
 })
 
-app.put("/edit-blog/:id",authenticate,(req,res)=>{
+app.put("/edit-blog/:id",authenticate,async (req,res)=>{
     let id = req.params.id
-    let blog = blogs.find(blog => blog.id == id)
+    let blog = await Blogs.findById(id)
     let blogData = req.body
     blog.title = blogData.title
     blog.content = blogData.content
+
+    await blog.save()
     res.json({
         "message":"updated succesfully"
     })
 })
 
-app.delete("/delete-blog/:id",authenticate,(req,res)=>{
+app.delete("/delete-blog/:id",authenticate,async(req,res)=>{
     let id = req.params.id
-    let blogIndex = blogs.findIndex(blog => blog.id == id)
-    blogs.splice(blogIndex,1)
+    await Blogs.findByIdAndDelete(id)
     res.json({
         "message": "blog deleted"
     })
