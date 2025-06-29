@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGODB_URL).then(()=>{
 })
 
 
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT || 3000;
 
 app = express()
 
