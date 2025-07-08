@@ -1,5 +1,3 @@
-Collecting workspace information# Blog Platform
-
 A full-stack blog platform built with Node.js, Express, and MongoDB that allows users to create, read, update, and delete blog posts with user authentication.
 
 ## Features
