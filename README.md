@@ -1,5 +1,7 @@
 A full-stack blog platform built with Node.js, Express, and MongoDB that allows users to create, read, update, and delete blog posts with user authentication.
 
+live-link: https://blogs-5ppq.onrender.com/
+
 ## Features
 
 - **User Authentication**: Secure signup and signin with JWT tokens
